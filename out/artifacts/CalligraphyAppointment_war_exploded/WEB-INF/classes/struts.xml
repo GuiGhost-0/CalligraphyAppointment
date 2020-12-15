@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="main" extends="struts-default" namespace="/" strict-method-invocation="false">
+        <action name="admin_*" class="mainAction" method="{1}">
+            <result name="success">
+                /adminIndex.jsp
+            </result>
+            <result name="logout" type="redirect">
+                /login.jsp
+            </result>
+        </action>
+        <action name="teacher_*" class="teacherAction" method="{1}">
+            <result name="success">
+                /teacherIndex.jsp
+            </result>
+            <result name="list">
+                /teacher_list.jsp
+            </result>
+            <result name="update">
+                /teaUpdate.jsp
+            </result>
+        </action>
+        <action name="student_*" class="studentAction" method="{1}">
+            <result>
+                /studentIndex.jsp
+            </result>
+            <result name="list">
+                /student_list.jsp
+            </result>
+            <result name="update">
+                /stuUpdate.jsp
+            </result>
+        </action>
+        <action name="yueke_*" class="yueKeAction" method="{1}">
+            <result name="list">
+                /yueke_list.jsp
+            </result>
+        </action>
+    </package>
+</struts>

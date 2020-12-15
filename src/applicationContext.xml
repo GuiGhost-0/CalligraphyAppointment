@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" id="dataSource">
+        <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/calligraphyappointment?serverTimezone=UTC"/>
+        <property name="user" value="root"/>
+        <property name="password" value="ghost"/>
+    </bean>
+    <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" id="sessionFactory">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocations" value="classpath:hibernate.cfg.xml"/>
+    </bean>
+    <!--    配置一个HibernateTemplate对象-->
+    <bean class="org.springframework.orm.hibernate5.HibernateTemplate" id="hibernateTemplate">
+        <!--        在HibernateTemplate中注入SessionFactory对象-->
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean class="com.hy.guighost.dao.impl.AdminDaoImpl" id="adminDao">
+        <property name="hibernateTemplate" ref="hibernateTemplate"/>
+    </bean>
+    <bean class="com.hy.guighost.service.impl.AdminServiceImpl" id="adminService">
+        <property name="adminDao" ref="adminDao"/>
+    </bean>
+    <bean class="com.hy.guighost.dao.impl.TeacherDaoImpl" id="teacherDao">
+        <property name="hibernateTemplate" ref="hibernateTemplate"/>
+    </bean>
+    <bean class="com.hy.guighost.service.impl.TeacherServiceImpl" id="teacherService">
+        <property name="teacherDao" ref="teacherDao"/>
+    </bean>
+    <bean class="com.hy.guighost.dao.impl.StudentDaoImpl" id="studentDao">
+        <property name="hibernateTemplate" ref="hibernateTemplate"/>
+    </bean>
+    <bean class="com.hy.guighost.service.impl.StudentServiceImpl" id="studentService">
+        <property name="studentDao" ref="studentDao"/>
+    </bean>
+    <bean class="com.hy.guighost.action.MainAction" id="mainAction">
+        <property name="adminService" ref="adminService"/>
+    </bean>
+    <bean class="com.hy.guighost.action.TeacherAction" id="teacherAction">
+        <property name="teacherService" ref="teacherService"/>
+        <property name="yueKeService" ref="yueKeService"/>
+        <property name="studentService" ref="studentService"/>
+    </bean>
+    <bean class="com.hy.guighost.action.StudentAction" id="studentAction">
+        <property name="studentService" ref="studentService"/>
+        <property name="teacherService" ref="teacherService"/>
+    </bean>
+    <bean class="com.hy.guighost.dao.impl.YueKeDaoImpl" id="yueKeDao">
+        <property name="hibernateTemplate" ref="hibernateTemplate"/>
+    </bean>
+    <bean class="com.hy.guighost.service.impl.YueKeServiceImpl" id="yueKeService">
+        <property name="yueKeDao" ref="yueKeDao"/>
+    </bean>
+    <bean class="com.hy.guighost.action.YueKeAction" id="yueKeAction">
+        <property name="yueKeService" ref="yueKeService"/>
+        <property name="studentService" ref="studentService"/>
+        <property name="teacherService" ref="teacherService"/>
+    </bean>
+
+
+    <!--    配置事务-->
+    <bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" id="transactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>
