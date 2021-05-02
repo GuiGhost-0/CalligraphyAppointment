@@ -20,7 +20,6 @@ ul {
     background-repeat: no-repeat;
     background-size: cover;
     transition: all 0.5s;
-    background-image: linear-gradient(90deg, #5b4099, #EEE8AA);
 }
 
 #wrapper .sidebar {

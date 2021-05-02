@@ -4,6 +4,10 @@
     font-family: LiSu;
 }
 
+body{
+    background-image: url("../images/backgroundimage.png");
+}
+
 a {
     text-decoration: none;
 }

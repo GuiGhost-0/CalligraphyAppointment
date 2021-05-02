@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>学院列表列表</title>
+    <title>学员约课列表</title>
     <link rel="stylesheet" href="css/basic.css">
 
 </head>
@@ -37,6 +37,5 @@
         </tr>
     </c:forEach>
 </table>
-
 </body>
 </html>

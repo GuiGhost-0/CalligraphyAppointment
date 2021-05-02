@@ -16,7 +16,8 @@ public class AdminDaoImpl implements AdminDao {
     @Override
     public Admin login(Admin admin) {
         List<Admin> admins = (List<Admin>) hibernateTemplate.find
-                ("from Admin where adminName=?0 and adminPassword=?1", admin.getAdminName(), admin.getAdminPassword());
+                ("from Admin where adminName=?0 and adminPassword=?1",
+                        admin.getAdminName(), admin.getAdminPassword());
         if (admins != null && admins.size() != 0) {
             Admin u = admins.get(0);
             return u;

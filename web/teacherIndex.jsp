@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/basic.css" />
 </head>
 
-<body bgcolor="#EEE8AA">
+<body>
 <div id="main">
     <div id="logo">
         <p style="float: left;">XXX书法约课系统.教师版</p>

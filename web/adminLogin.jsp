@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/basic.css" />
 </head>
 
-<body bgcolor="#EEE8AA">
+<body>
 <div id="overall">
     <div id="teacherLogin">
         <div>

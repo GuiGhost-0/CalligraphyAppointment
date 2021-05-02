@@ -12,10 +12,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>xxx书法约课系统</title>
-  <link rel="stylesheet" type="text/css" href="css/basic.css" />
+  <link rel="stylesheet" href="css/basic.css" />
 </head>
 
-<body bgcolor="#EEE8AA">
+<body>
 <div id="main">
   <div id="logo">
     <p style="float: left;">XXX书法约课系统</p>

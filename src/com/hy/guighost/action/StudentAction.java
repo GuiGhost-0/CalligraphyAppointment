@@ -63,6 +63,7 @@ public class StudentAction extends ActionSupport implements ModelDriven<Student>
         ServletActionContext.getRequest().getSession().setAttribute("stus",allStu);
         return "list";
     }
+
     public String save(){
         studentService.save(student);
         List<Student> allStu = studentService.findAllStu();

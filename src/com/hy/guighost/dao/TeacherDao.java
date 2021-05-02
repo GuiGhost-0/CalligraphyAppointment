@@ -12,7 +12,5 @@ public interface TeacherDao {
     Teacher findById(Integer id);
     void update(Teacher teacher);
     void delete(Integer id);
-
-
     void save(Teacher teacher);
 }
