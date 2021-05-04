@@ -10,11 +10,12 @@
 <html>
 <head>
     <title>学员约课列表</title>
-    <link rel="stylesheet" href="css/basic.css">
+    <link rel="stylesheet" type="text/css" href="css/basic.css">
+
 
 </head>
 <body>
-<table class="list_table">
+<table class="list_table" style="width: 70%;">
     <tr>
         <th colspan="6">xxx培训机构约课列表</th>
     </tr>

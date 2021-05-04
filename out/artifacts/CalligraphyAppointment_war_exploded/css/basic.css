@@ -134,23 +134,23 @@ a {
 }
 
 .list_table{
-    border: 2px double ghostwhite;
+    border: 1px double ghostwhite;
     text-align: center;
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: 10%;
+    top: 10%;
     font-size: 16px;
     box-sizing: border-box;
+    color: #ac2925;
 }
 .list_table td{
-    border: 2px double ghostwhite;
+    border: 1px double ghostwhite;
     width: 150px;
     height: 35px;
     line-height: 35px;
 }
 .list_table th{
-    border: 2px double ghostwhite;
+    border: 1px double ghostwhite;
     height: 50px;
     line-height: 50px;
 }

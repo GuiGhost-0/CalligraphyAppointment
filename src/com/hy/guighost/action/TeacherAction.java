@@ -7,6 +7,7 @@ import com.hy.guighost.entity.YueKeInfo;
 import com.hy.guighost.service.StudentService;
 import com.hy.guighost.service.TeacherService;
 import com.hy.guighost.service.YueKeService;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import org.apache.struts2.ServletActionContext;
@@ -48,31 +49,30 @@ public class TeacherAction extends ActionSupport implements ModelDriven<Teacher>
     }
     public String teacherLogin(){
         Teacher login = teacherService.login(teacher);
-        ServletActionContext.getRequest().getSession().setAttribute("teacher",login);
-        List<Student> stus = teacherService.findStusById(login.getTea_id());
-        ServletActionContext.getRequest().getSession().setAttribute("stus",stus);
-
-        List<YueKeInfo> stuByTeaId = yueKeService.findStuByTeaId(login.getTea_id());
-        List<Student> students = new ArrayList<>();
-        List<ShowYueKeInfo> showYueKeInfos = new ArrayList<>();
-        for (YueKeInfo integer : stuByTeaId) {
-            students.add(studentService.findStuById(integer.getStuId()));
-        }
-        for (Student student : students) {
-            ShowYueKeInfo showYueKeInfo = new ShowYueKeInfo();
-            showYueKeInfo.setStuName(student.getStuName());
-            showYueKeInfo.setTeaMajor(login.getMajor());
-            showYueKeInfo.setTeachTime(login.getTeachTime());
-            showYueKeInfos.add(showYueKeInfo);
-        }
-
-        ServletActionContext.getRequest().getSession().setAttribute("showInfo",showYueKeInfos);
         if(login!=null){
+            ServletActionContext.getRequest().getSession().setAttribute("teacher",login);
+            List<Student> stus = teacherService.findStusById(login.getTea_id());
+            ServletActionContext.getRequest().getSession().setAttribute("stus",stus);
+
+            List<YueKeInfo> stuByTeaId = yueKeService.findStuByTeaId(login.getTea_id());
+            List<Student> students = new ArrayList<>();
+            List<ShowYueKeInfo> showYueKeInfos = new ArrayList<>();
+            for (YueKeInfo integer : stuByTeaId) {
+                students.add(studentService.findStuById(integer.getStuId()));
+            }
+            for (Student student : students) {
+                ShowYueKeInfo showYueKeInfo = new ShowYueKeInfo();
+                showYueKeInfo.setStuName(student.getStuName());
+                showYueKeInfo.setTeaMajor(login.getMajor());
+                showYueKeInfo.setTeachTime(login.getTeachTime());
+                showYueKeInfos.add(showYueKeInfo);
+            }
+            ServletActionContext.getRequest().getSession().setAttribute("showInfo",showYueKeInfos);
             return SUCCESS;
         }else{
+            ServletActionContext.getRequest().getSession().setAttribute("msg","用户名或密码错误");
             return ERROR;
         }
-
     }
 
     public String list(){
@@ -105,5 +105,11 @@ public class TeacherAction extends ActionSupport implements ModelDriven<Teacher>
     public String save(){
         teacherService.save(teacher);
         return "list";
+    }
+
+    public String logout(){
+        ActionContext.getContext().getSession().clear();
+        ServletActionContext.getRequest().getSession().setAttribute("msg",null);
+        return "logout";
     }
 }

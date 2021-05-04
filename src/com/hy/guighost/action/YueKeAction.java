@@ -47,8 +47,8 @@ public class YueKeAction extends ActionSupport {
         yueKeInfo.setTeaId(teaId);
         yueKeInfo.setTime(new Date());
         yueKeService.addYueKeInfo(yueKeInfo);
-        System.out.println(yueKeInfo);
-        return NONE;
+        ServletActionContext.getRequest().getSession().setAttribute("msg","选择成功");
+        return "select";
     }
 
     public String list(){

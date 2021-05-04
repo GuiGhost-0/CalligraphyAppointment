@@ -12,6 +12,16 @@ public class Admin {
     private Integer a_id;
     private String adminName;
     private String adminPassword;
+    private String name;
+    private String operator;
+
+    public String getOperator() {
+        return operator;
+    }
+
+    public void setOperator(String operator) {
+        this.operator = operator;
+    }
 
     public Integer getA_id() {
         return a_id;
@@ -37,12 +47,22 @@ public class Admin {
         this.adminPassword = adminPassword;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Admin{" +
                 "a_id=" + a_id +
                 ", adminName='" + adminName + '\'' +
                 ", adminPassword='" + adminPassword + '\'' +
+                ", name='" + name + '\'' +
+                ", operator='" + operator + '\'' +
                 '}';
     }
 }

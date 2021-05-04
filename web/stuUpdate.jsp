@@ -34,7 +34,6 @@
                 <td>性别</td>
                 <td><input type="text" value="${updStu.stuSex}" name="stuSex"></td>
             </tr>
-
             <tr>
                 <td colspan="2"><input type="submit" value="提交"></td>
             </tr>

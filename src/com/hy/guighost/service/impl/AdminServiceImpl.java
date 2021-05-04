@@ -17,4 +17,19 @@ public class AdminServiceImpl implements AdminService {
     public Admin login(Admin admin) {
         return adminDao.login(admin);
     }
+
+    @Override
+    public Admin getById(Integer aid) {
+        return adminDao.getById(aid);
+    }
+
+    @Override
+    public void updateAdmin(Admin admin) {
+        adminDao.updateAdmin(admin);
+    }
+
+    @Override
+    public void saveAdmin(Admin admin) {
+        adminDao.saveAdmin(admin);
+    }
 }

@@ -10,7 +10,22 @@
             <result name="success">
                 /adminIndex.jsp
             </result>
+            <result name="error" type="redirect">
+                /adminLogin.jsp
+            </result>
+            <result name="adminmanage">
+                /adminMana.jsp
+            </result>
             <result name="logout" type="redirect">
+                /login.jsp
+            </result>
+            <result name="updsuccess" type="redirect">
+                /login.jsp
+            </result>
+            <result name="toAddAdmin">
+                /addAdmin.jsp
+            </result>
+            <result name="index">
                 /login.jsp
             </result>
         </action>
@@ -18,16 +33,25 @@
             <result name="success">
                 /teacherIndex.jsp
             </result>
+            <result name="error">
+                /teacherLogin.jsp
+            </result>
             <result name="list">
                 /teacher_list.jsp
             </result>
             <result name="update">
                 /teaUpdate.jsp
             </result>
+            <result name="logout" type="redirect">
+                /teacherLogin.jsp
+            </result>
         </action>
         <action name="student_*" class="studentAction" method="{1}">
             <result>
                 /studentIndex.jsp
+            </result>
+            <result name="error" type="redirect">
+                /studentLogin.jsp
             </result>
             <result name="list">
                 /student_list.jsp
@@ -35,10 +59,16 @@
             <result name="update">
                 /stuUpdate.jsp
             </result>
+            <result name="logout">
+                /studentLogin.jsp
+            </result>
         </action>
         <action name="yueke_*" class="yueKeAction" method="{1}">
             <result name="list">
                 /yueke_list.jsp
+            </result>
+            <result name="select">
+                /studentIndex.jsp
             </result>
         </action>
     </package>

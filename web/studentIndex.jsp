@@ -21,10 +21,13 @@
     <div id="logo">
         <p style="float: left;">XXX书法约课系统.学生版</p>
         <p style="float: right; margin: 0px; font-size: 15px; width: 250px; padding-top: 18px;">欢迎登录...
-            <font style="color: #ff0000;">${student.stuName}</font>同学&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/login.jsp">退出</a></p>
+            <font style="color: #ff0000;">${student.stuName}</font>同学&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/student_logout.action">退出</a></p>
     </div>
     <div id="students">
-        <div id="title">老师信息</div>
+        <div id="title">
+            <span style="float: left">老师信息</span>
+            <span style="float: right;color: lawngreen">${msg}</span>
+        </div>
         <div id="studentsInfo">
             <c:forEach items="${teachers}" var="teacher">
                 <div class="stu">
@@ -44,7 +47,9 @@
                                 <td>${teacher.teachTime}</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="submit" value="选择"></td>
+                                <td colspan="2">
+                                    <input type="submit" value="选择">
+                                </td>
                             </tr>
                         </table>
                     </form>

@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <%--    <meta http-equiv="X-UA-Compatible" content="ie=edge">--%>
-    <title>侧边栏抽屉</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="css/basic.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <script src="js/jquery-1.10.2.js"></script>
@@ -25,7 +25,7 @@
     <div class="sidebar">
         <div class="headSculpture">
             <img src="images/headSculpture.jpg" alt="">
-            <p>昵称：${admin.adminName}</p>
+            <p>昵称：${admin.name}</p>
         </div>
         <div class="option">
             <ul class="userMenu">
@@ -38,6 +38,12 @@
                 <li><img src="images/collection.png" alt="">
                     <p><a href="${pageContext.request.contextPath}/yueke_list" target="menuFrame">约课信息</a></p>
                 </li>
+                <li><img src="images/collection.png" alt="">
+                    <p><a href="${pageContext.request.contextPath}/admin_toAdminManage?adminId=${admin.a_id}">管理员设置</a></p>
+                </li>
+                <li><img src="images/collection.png" alt="">
+                    <p><a href="${pageContext.request.contextPath}/admin_toAddAdminManage?adminId=${admin.a_id}">添加管理员</a></p>
+                </li>
                 <li><img src="images/setup.png" alt="">
                     <p><a href="${pageContext.request.contextPath}/admin_adminLogout.action" target="_top">退出</a></p>
                 </li>
@@ -45,7 +51,8 @@
         </div>
     </div>
     <!-- 侧边栏按钮 -->
-    <button></button>
+    <button>
+    </button>
     <!-- 内容区域 -->
     <div class="banner">
         <!--            <h2>原创侧边栏抽屉</h2>-->

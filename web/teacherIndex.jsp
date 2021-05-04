@@ -20,8 +20,9 @@
 <div id="main">
     <div id="logo">
         <p style="float: left;">XXX书法约课系统.教师版</p>
-        <p style="float: right; margin: 0px; font-size: 15px; width: 222px; padding-top: 18px;">欢迎登录...
-            <font style="color: red;">${teacher.teaName}</font>老师&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/login.jsp">退出</a></p>
+        <p style=" float: right; margin: 0px; font-size: 15px; width: 240px; padding-top: 18px;">欢迎登录...
+            <span style="color: red">${teacher.teaName}</span>老师&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="${pageContext.request.contextPath}/teacher_logout">退出</a></p>
     </div>
     <div id="students">
         <div id="title">学员约课信息</div>

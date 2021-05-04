@@ -33,10 +33,16 @@
                         <td><input type="password" name="adminPassword" class="login_value" /></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><input type="submit" value="登录" style="border-radius: 5px; width: 50px; height: 28px; border: 3px gray solid;"></td>
+                        <td colspan="2">
+                            <input type="submit" value="登录" style="border-radius: 5px; width: 50px; height: 28px; border: 3px gray solid;">
+                            <span style="color: red">${msg}</span>
+                        </td>
                     </tr>
                 </table>
             </form>
+            <a href="${pageContext.request.contextPath}/admin_toIndex.action">
+                <button style="border-radius: 5px; width: 50px; height: 28px; border: 3px gray solid;">主页</button>
+            </a>
         </div>
 
     </div>

@@ -40,10 +40,21 @@ public class StudentAction extends ActionSupport implements ModelDriven<Student>
 
     public String login(){
         Student login = studentService.login(student);
-        List<Teacher> teachers = teacherService.frndAllTeacher();
-        ServletActionContext.getRequest().getSession().setAttribute("student",login);
-        ServletActionContext.getRequest().getSession().setAttribute("teachers",teachers);
-        return SUCCESS;
+        if (login != null){
+            List<Teacher> teachers = teacherService.frndAllTeacher();
+            ServletActionContext.getRequest().getSession().setAttribute("student",login);
+            ServletActionContext.getRequest().getSession().setAttribute("teachers",teachers);
+            return SUCCESS;
+        }else{
+            ServletActionContext.getRequest().getSession().setAttribute("msg","用户名或密码错误");
+            return ERROR;
+        }
+
+    }
+    public String logout(){
+        ServletActionContext.getRequest().getSession().removeAttribute("student");
+        ServletActionContext.getRequest().getSession().setAttribute("msg",null);
+        return "logout";
     }
     public String list(){
         List<Student> allStu = studentService.findAllStu();
